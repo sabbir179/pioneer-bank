@@ -69,63 +69,14 @@
 
 
 
-
+ <!-- bootstrap jquery and JavaScript  -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <script >
-        // Login button event handler 
-        const loginBtn = document.getElementById("login");
-        loginBtn.addEventListener("click", function(){
-            const loginArea = document.getElementById("login-area");
-            loginArea.style.display = "none";
-            const transactionArea = document.getElementById("transaction-area");
-            transactionArea.style.display = "block";
-        })
+    <!-- pioneer bank calculation  -->
+    <script src="bank.js"></script>
 
-        // Deposit button event handler
-
-        const depositBtn = document.getElementById("addDeposit");
-        depositBtn.addEventListener('click', function () {
-            const depositNumber = getInputNumber("depositAmount");
-
-            updateSpanText("currentDeposit", depositNumber);
-            updateSpanText("currentBalance", depositNumber);
-
-            document.getElementById("depositAmount").value = "";
-
-        })
-
-        // withdraw button event handler 
-
-        const withdrawBtn = document.getElementById("addWithdraw");
-        withdrawBtn.addEventListener("click", function(){
-            const withdrawNumber = getInputNumber("withdrawAmount");
-           
-            updateSpanText("currentWithdraw", withdrawNumber);
-            updateSpanText("currentBalance", -1 * withdrawNumber);
-
-
-            document.getElementById("withdrawAmount").value = "";
-        })
-
-        function getInputNumber(id) {
-            const amount = document.getElementById(id).value;
-            const amountNumber = parseFloat(amount);
-            return amountNumber;
-        }
-
-
-        function updateSpanText(id, depositNumber) {
-            const current = document.getElementById(id).innerText;
-            const currentNumber = parseFloat(current);
-            const totalAmount = depositNumber + currentNumber;
-            
-            document.getElementById(id).innerText = totalAmount;
-        }
-            
-    </script>
 </body>
 </html>
